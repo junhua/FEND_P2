@@ -63,8 +63,10 @@ var education = {
     }]
 };
 
+var gMapString = "https://www.google.com.sg/maps/place/Singapore";
+
 // footer
-bio.displayFooter = function(){
+bio.displayFooter = function() {
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
@@ -163,11 +165,12 @@ education.display = function() {
     };
 
     $("#education").append(HTMLonlineClasses);
-    for (var i = 0; i < education.onlineClasses.length; i++) {
+    // for (var i = 0; i < education.onlineClasses.length; i++) {
+    for (cls in education.onlineClasses) {
+
         $("#education").append(HTMLschoolStart);
 
-        var onlineClass = education.onlineClasses[i];
-
+        var onlineClass = education.onlineClasses[cls];
         var title = HTMLonlineTitle.replace("%data%", onlineClass.title);
         var school = HTMLonlineSchool.replace("%data%", onlineClass.school);
         var dates = HTMLonlineDates.replace("%data%", onlineClass.dates);
@@ -186,3 +189,13 @@ bio.displayFooter();
 work.display();
 projects.display();
 education.display();
+
+$(document).click(function(loc) {
+    var x = loc.pageX;
+    var y = loc.pageY;
+
+    logClicks(x,y);
+});
+$("#main").append(internationalizeButton);
+$("#map-div").append(googleMap);
+$("#googleMap").append(gMapString);
