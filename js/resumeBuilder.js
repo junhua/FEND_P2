@@ -63,6 +63,18 @@ var education = {
     }]
 };
 
+// footer
+bio.displayFooter = function(){
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#footerContacts").append(formattedMobile);
+    $("#footerContacts").append(formattedEmail);
+    $("#footerContacts").append(formattedGithub);
+    $("#footerContacts").append(formattedLocation);
+};
+
 // header
 bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -170,6 +182,7 @@ education.display = function() {
 };
 
 bio.display();
+bio.displayFooter();
 work.display();
 projects.display();
 education.display();
