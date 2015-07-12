@@ -166,7 +166,7 @@ education.display = function() {
 
     $("#education").append(HTMLonlineClasses);
     // for (var i = 0; i < education.onlineClasses.length; i++) {
-    for (cls in education.onlineClasses) {
+    for (var cls in education.onlineClasses) {
 
         $("#education").append(HTMLschoolStart);
 
